@@ -32,13 +32,13 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         userLimit: 5,
         permissionOverwrites: [
           {
-            id: newState.member.user.id,
+            id: newState.guild.id,
             allow: ['CONNECT', 'SPEAK'],
           },
           {
-            id: 618446248256471051,
+            id: newState.member.user.id,
             allow: ['CONNECT', 'SPEAK', 'MANAGE_CHANNELS', ],
-          },
+          }
         ]
       }).then(ch => {
         return newState.setChannel(ch).then(() => {
